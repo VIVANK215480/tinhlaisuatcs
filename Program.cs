@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using LIBDLL;
 
-namespace CStestDLL
+namespace tinhlaisuatcs
 {
     internal class Program
     {
@@ -18,9 +17,8 @@ namespace CStestDLL
             Console.Write("Nhập số năm: ");
             int years = Convert.ToInt32(Console.ReadLine());
 
-            Calculator calculator = new Calculator();
-            double totalAmount = calculator.CalculateTotalAmount(principal, interestRate, years);
-            double interest = calculator.CalculateInterest(principal, interestRate, years);
+            double totalAmount = principal * Math.Pow((1 + interestRate / 100), years);
+            double interest = totalAmount - principal;
 
             Console.WriteLine($"Tổng số tiền sau {years} năm: {totalAmount:F2}");
             Console.WriteLine($"Tổng tiền lãi: {interest:F2}");
